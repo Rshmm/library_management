@@ -43,3 +43,62 @@ class PersonManagement:
             print("person dose`nt exist")
 
 
+
+
+class BooManagement:
+
+    def __init__(self):
+        self.books = []
+
+
+    def add_book(self,code,name):
+        if any(code == book.code for book in self.books):
+            print("code already used")
+        else:
+            self.books.append(Book(code,name))
+            print("book added successfully")
+
+    def show_book(self):
+        for book in self.books:
+            print(book)
+
+
+    def remove_book(self,code):
+        found = False
+        for book in self.books:
+            if code == book.code:
+                found = True
+                self.books.remove(book)
+                print("book removed successfully")
+        if not found:
+            print("book dose`nt exist")
+
+
+    def edit_book(self,code,new_name):
+        found = False
+        for book in self.books:
+            if code == book.code:
+                found = True
+                book.name = new_name
+                print("book edited successfully")
+        if not found:
+            print("book dose`nt exist")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
