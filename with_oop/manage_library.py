@@ -45,7 +45,7 @@ class PersonManagement:
 
 
 
-class BooManagement:
+class BookManagement:
 
     def __init__(self):
         self.books = []
@@ -84,9 +84,33 @@ class BooManagement:
         if not found:
             print("book dose`nt exist")
 
+class Borrow:
+
+    def __init__(self, person_management, book_management):
+        self.borrows = []
+        self.person_management = person_management
+        self.book_management = book_management
 
 
 
+    def borrow_book(self,person_code,book_code):
+        person_found = True
+        for person in self.person_management.persons:
+            if person_code == person.code:
+                person_found = True
+                book_found = False
+                for book in self.book_management.books:
+                    if book_code == book.code:
+                        book_found = True
+                        self.borrows.append([book.name,person.name,person.family])
+                if not book_found:
+                    print("book dose`nt exist")
+        if not person_found:
+            print("person dose`nt exist")
+
+    def show_borrows(self):
+        for borrow in self.borrows:
+            print(f"{borrow[0]} borrowed by {borrow[1] + ' ' + borrow[2]}")
 
 
 
