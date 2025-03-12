@@ -15,8 +15,11 @@ class PersonManagement:
 
     def show_person(self):
         print("Persons")
-        for person in self.persons:
-            print(person)
+        if not self.persons:
+            print("there is no person")
+        else:
+            for person in self.persons:
+                print(person)
 
     def remove_person(self,code):
         found = False
@@ -59,8 +62,12 @@ class BookManagement:
             print("book added successfully")
 
     def show_book(self):
-        for book in self.books:
-            print(book)
+        print("books")
+        if not self.books:
+            print("there is no books")
+        else:
+            for book in self.books:
+                print(book)
 
 
     def remove_book(self,code):
